@@ -52,3 +52,27 @@ article p {
 article.featured:hover {
   background-color: #FFB300;
 }
+div{
+  background-color: lightgray;
+}
+nav.navbar{
+  background-color: rgb(66, 65, 65);
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    align-items: center;
+    color: white;
+    padding: 10px;
+}
+a.navbar{
+  color: white;
+    text-decoration: none;
+}
+ul.navbar{
+  display: flex;
+    list-style-type: none;
+    flex-direction: row;
+}
+li.navbar {
+  padding: 10px;
+}
