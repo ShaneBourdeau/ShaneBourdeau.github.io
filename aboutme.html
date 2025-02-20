@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>About me</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="common_style.css" />
+<style>
+    nav {
+        background-color: rgb(66, 65, 65);
+        display: flex;
+        justify-content: space-between;
+        font-size: 24px;
+        align-items: center;
+        color: white;
+        padding: 10px;
+    }
+    ul.navbar {
+        display: flex;
+        list-style-type: none;
+        flex-direction: row;
+    }
+
+    a.navbar {
+        color: white;
+        text-decoration: none;
+    }
+
+    li.navbar {
+        padding: 10px;
+    }
+
+
+    @media (max-width: 600px) {
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 5px;
+        }
+
+        nav ul.navbar {
+            flex-direction: column;
+            width: 100%;
+            padding: 0;
+        }
+
+        nav.logo {
+            width: 100%;
+            align-items: center;
+            padding: 5px;
+        }
+
+        nav ul.navbar li.navbar {
+            width: 100%;
+            text-align: center;
+            padding: 5px;
+        }
+
+        nav ul.navbar li.navbar a.navbar {
+            padding: 10px;
+            display: block;
+        }
+    }
+</style>
+</head>
+<header>
+    <nav class="logo">
+        Logo
+        <div style="color: #333" class="navbar">
+            <ul class="navbar">
+                <li class="navbar"><a href="https://shanebourdeau.github.io" class="navbar">Home</a></li>
+                <li class="navbar"><a href="url" class="navbar">About</a></li>
+                <li class="navbar"><a href="url" class="navbar">Services</a></li>
+                <li class="navbar"><a href="url" class="navbar">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<body>
+    <header><h1>About Me</h1></header>
+    <p>I am a Junior at Siena College. I am majoring in computer science and minoring in French. When I graduate, I would like to be a software engineer. In my free time, I like to play video games, watch sports and listen to music.
+        Here are some projects of mine:
+    </p>
+    <ul>
+        <li><a href = "https://github.com/ShaneBourdeau/DijkstrasAlgorithmStudy">Parallelizing Dijkstra's algorithm with Java Threads</a></li>
+        <li><a href = "https://github.com/ShaneBourdeau/Amaze-ing-Carl"> A robot that follows a line and picks up objects and brings it back to the start</a></li>
+    </ul>
+    <img src = "yankees.png" alt = "Yankees logo"/>
+    <footer>Go Yankees!</footer>
+</body>
+</html>
