@@ -46,3 +46,6 @@ article p {
 .right_align {
   text-align: right;
 }
+article.featured:hover {
+  background-color: #FFB300;
+}
