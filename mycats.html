@@ -10,7 +10,7 @@
             min-height: 100vh;
             flex-direction: column;
         }
-
+        
         main {
             display: flex;
             flex-direction: column;
@@ -25,7 +25,7 @@
             justify-content: center;
         }
 
-        nav.layout {
+       nav.layout {
             background-color: beige;
             padding: 1em;
             color: black;
@@ -38,11 +38,13 @@
             align-items: center;
             justify-content: center;
         }
-        header,
-        footer {
+        header.layout,
+        footer.layout {
             background-color: white;
             height: 10vh;
             padding: 1em;
+            font-variant: small-caps;
+            font-size: 20pt;
         }
 
         @media (min-width: 576px) {
@@ -114,6 +116,7 @@
                 display: block;
             }
         }
+            
     </style>
     <header>
         <nav class="logo">
@@ -131,7 +134,7 @@
 </head>
 
 <body>
-    <header><h1>My cats</h1> </header>
+    <header class = "layout"><h1>My cats</h1> </header>
     <main>
         <nav class = "layout"> Yogi
             <img style="width: 150 px; height: 150px;" src="yogi.jpeg" alt="my cat Yogi" />
@@ -143,6 +146,6 @@
         </aside>
     </main>
 </body>
-<footer>Email me at s26bour@siena.edu</footer>
+<footer class = "layout">Email me at s26bour@siena.edu</footer>
 
 </html>
