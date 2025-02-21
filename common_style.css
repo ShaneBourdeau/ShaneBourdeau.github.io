@@ -6,6 +6,15 @@
 header{
   text-align: center;
 }
+p:hover {
+  background-color: yellow;
+}
+a:hover {
+  background-color: purple;
+}
+header:hover {
+  background-color: orange;
+}
 img.logo{
   width:70 px;
   height:50px;
