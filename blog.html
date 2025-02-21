@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog</title>
     <style>
-        header{
+        header {
             text-align: center;
         }
         body {
             display: flex;
             min-height: 100vh;
             flex-direction: column;
+            margin: 0; /* Remove default margin */
         }
 
         main {
             display: flex;
             flex-direction: column;
+            margin-top: 70px; /* Add margin to avoid content being hidden behind the navbar */
         }
 
         article {
@@ -37,7 +39,7 @@
             padding: 1em;
         }
 
-        header,footer {
+        header, footer {
             background-color: white;
             height: 10vh;
             padding: 1em;
@@ -48,74 +50,81 @@
                 flex-direction: row;
             }
 
-            nav.layout,aside {
+            nav.layout, aside {
                 flex-grow: 0;
                 flex-shrink: 0;
                 flex-basis: 20vw;
             }
         }
-    
-        nav {
+
+        nav.logo {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            max-width: 100%;
+            left: 0;
+            z-index: 1000;
             background-color: rgb(66, 65, 65);
             display: flex;
             justify-content: space-between;
             font-size: 24px;
-            align-items: flex-start;
+            align-items: center;
             color: white;
             padding: 10px;
-            align-items: center;
+            box-sizing: border-box;
         }
-    
+
         ul.navbar {
             display: flex;
             list-style-type: none;
             flex-direction: row;
         }
-    
+
         a.navbar {
             color: white;
             text-decoration: none;
         }
-    
+
         li.navbar {
             padding: 10px;
         }
-    
+
         @media (max-width: 600px) {
             nav {
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 5px;
             }
-    
+
             nav ul.navbar {
                 flex-direction: column;
                 width: 100%;
                 padding: 0;
             }
-    
+
             nav.logo {
                 width: 100%;
                 align-items: center;
                 padding: 5px;
             }
-    
+
             nav ul.navbar li.navbar {
                 width: 100%;
                 text-align: center;
                 padding: 5px;
             }
-    
+
             nav ul.navbar li.navbar a.navbar {
                 padding: 10px;
                 display: block;
             }
         }
-    
     </style>
+</head>
+<body>
     <header>
         <nav class="logo">
-        <img style = "width:70 px; height:50px;" src="selfie.jpg" alt="Picture of me" />
+            <img style="width:70px; height:auto;" src="selfie.jpg" alt="Picture of me" />
             <div style="color: #333" class="navbar">
                 <ul class="navbar">
                     <li class="navbar"><a href="https://shanebourdeau.github.io" class="navbar">Home</a></li>
@@ -126,38 +135,37 @@
             </div>
         </nav>
     </header>
-</head>
-
-<body>
-    <header><h1>Blog</h1> </header>
+    <header><h1>Blog</h1></header>
     <main>
-        <nav class = "layout"> Links
+        <nav class="layout"> Links
             <ul>
-            <li><a href = "https://github.com/ShaneBourdeau">Github</a></li>
-        <li> <a href = "https://www.linkedin.com/in/shane-bourdeau-992143350>">LinkedIn</a></li>
-            <li><a href = "https://www.baseball-reference.com/">My favorite website</a></li>
+                <li><a href="https://github.com/ShaneBourdeau">Github</a></li>
+                <li><a href="https://www.linkedin.com/in/shane-bourdeau-992143350">LinkedIn</a></li>
+                <li><a href="https://www.baseball-reference.com/">My favorite website</a></li>
             </ul>
-         </nav>
-        <article><ul>
-            <li>Favorite sports
-                <ul>
-                    <li>Baseball</li>
-                    <li>Hockey</li>
-                    <li>Football</li>
-                </ul>
-            </li>
-            <li>Favorite video games
-                <ul>
-                    <li>Red Dead Redemption 2</li>
-                    <li>Rocket League</li>
-                    <li>God of War</li>
-                </ul>
-            </li>
-        </ul></article>
-        <aside><p>My favorite Baseball team is the New York Yankees, my favorite hockey team is the Colorado Avalanche and 
-            my favorite football team is the Tampa Bay Buccaneers. </p></aside>
+        </nav>
+        <article>
+            <ul>
+                <li>Favorite sports
+                    <ul>
+                        <li>Baseball</li>
+                        <li>Hockey</li>
+                        <li>Football</li>
+                    </ul>
+                </li>
+                <li>Favorite video games
+                    <ul>
+                        <li>Red Dead Redemption 2</li>
+                        <li>Rocket League</li>
+                        <li>God of War</li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <aside>
+            <p>My favorite Baseball team is the New York Yankees, my favorite hockey team is the Colorado Avalanche and my favorite football team is the Tampa Bay Buccaneers.</p>
+        </aside>
     </main>
+    <footer>Email me at s26bour@siena.edu</footer>
 </body>
-<footer>Email me at s26bour@siena.edu</footer>
-
 </html>
