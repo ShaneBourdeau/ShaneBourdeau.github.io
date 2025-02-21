@@ -8,7 +8,25 @@
     <title>Home Page</title>
     
     <style>
-      
+         body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bfa8b);
+            background-size: 600% 600%;
+            animation: gradientBackground 15s ease infinite;
+        }/* This is the infinite animation*/
+      @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
         nav {
             background-color: rgb(66, 65, 65);
             display: flex;
@@ -35,7 +53,7 @@
             padding: 10px;
         }
         
-        .container{
+        div.container{
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -74,7 +92,7 @@
 </head>
 <header>
     <nav class="navbar logo">
-        Logo
+        <img class = "logo" src="selfie.jpg" alt="Picture of me"/>
         <div style="color: #333" class="navbar">
             <ul class="navbar">
                 <li class="navbar"><a href="https://shanebourdeau.github.io" class = "navbar">Home</a></li>
