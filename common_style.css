@@ -3,6 +3,9 @@
   flex-direction: column;
   align-items: center;
 }
+p{
+  font-family: 'Times New Roman', Times, serif;
+}
 header{
   text-align: center;
 }
@@ -16,7 +19,7 @@ header:hover {
   background-color: orange;
 }
 img.logo{
-  width:70 px;
+  width:70px;
   height:50px;
 }
 a.navbar:active {
@@ -26,6 +29,38 @@ a.navbar:active {
 footer.tiny{
   font-size: 2pt;
 }
+p.fun{
+  text-decoration: underline wavy;
+  color:deeppink;
+}
+header.decorated{
+  text-decoration-line: overline;
+    text-decoration-style: dotted;
+    color:coral;
+}
+#big{
+  font-size:50pt;
+  color: navy;
+  text-decoration-thickness: 5px;
+
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+ @media (min-width: 576px) {
+   main {
+     flex-direction: row;
+   }
+
+   nav.layout,
+   aside {
+     flex-grow: 0;
+     flex-shrink: 0;
+     flex-basis: 20vw;
+   }
+ }
 nav.navbar{
   background-color: rgb(66, 65, 65);
     display: flex;
