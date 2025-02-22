@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>navbar</title>
+  <style>
+    nav{
+        background-color: rgb(66, 65, 65);
+        display:flex;
+        justify-content: space-between;
+        font-size: 24px;
+        align-items: center;
+        color: white;
+        padding: 10px;
+    }
+    ul{
+        display: flex;
+        list-style-type: none;
+        flex-direction: row;
+    }
+    a{
+        color:white;
+        text-decoration: none;
+    }
+    /*pseudo class*/
+    a:hover {
+  color: #FF00FF;
+}
+    li{
+        padding: 10px;
+    }
+    @media (max-width: 600px){
+        nav{
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 5px;
+        }
+        nav ul{
+            flex-direction: column;
+            width: 100%;
+            padding: 0;
+        }
+        nav.logo{
+            width: 100%;
+            align-items: center;
+            padding: 5px;
+        }
+        nav ul li{
+            width: 100%;
+            text-align: center;
+            padding: 5px;
+        }
+        nav ul li a{
+            padding: 10px;
+            display: block;
+        }
+    }
+
+  </style>
+</head>
+<header>
+<nav class = "logo">
+    Logo
+  <div style = "color: #333">
+    <ul>
+    <li><a href="https://shanebourdeau.github.io">Home</a></li>
+    <!--add links to pages when you are further along in the project-->
+      <li><a href="url">About</a></li>
+      <li><a href="url">Services</a></li>
+      <li><a href="url">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+</header>
+</html>
