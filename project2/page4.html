@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First Obstacle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container">
+        <h1>The First Obstacle</h1>
+        <p>As you venture deeper into the Dark Forest, you encounter a mystical guardian. 
+            The guardian blocks your path and poses a riddle:</p>
+            <blockquote>"I speak without a mouth and hear without ears. I have no body, but I come alive with wind. 
+                What am I?”</blockquote>
+                <form id = "riddleForm" action = "page5.html" method = "get">
+                <label for = "answer">Your answer: </label>
+                <input type = "text" id = "answer" name = "answer" placeholder = "echo">
+                <input type="submit" id = "submitButton" value="Submit Answer" style = "margin: 3px;">
+                <br>Think carefully, for the correct answer will allow you passage.
+                </form>
+                <script> 
+                let riddleAnswer = document.getElementById(answer);
+                let submit = document.getElementById(submitButton);
+                //submit.addEventListener("input", changeColor);
+                function changeColor(correctAnswer, answerInput){
+                    correctAnswer = "echo";
+                    if (answerInput === correctAnswer){
+                        submit.style.backgroundColor = "green";
+                        submitButton.style.color = "white";
+                    }
+                    else{
+                        submit.style.backgroundColor = "red";
+                        submitButton.style.color = "white";
+                    }
+                } 
+                 riddleAnswer.addEventListener("input", function () {
+                        changeColor("echo",riddleAnswer.value);
+                    })
+                </script>
+    </section>
+</body>
+</html>
