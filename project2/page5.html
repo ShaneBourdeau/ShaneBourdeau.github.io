@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Journey Continues</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container">
+        <h1>The Journey Continues</h1>
+        <p>With the guardian's riddle behind you, the path forward splits into three. Each route is known to favor certain
+            traits: strength, wisdom, or stealth. Choose your path wisely, as it will influence the challenges you face ahead.
+        </p>
+        <form id = "pathForm" action = "page6.html" method = "get"> 
+            <label for = "path"> Choose your path:</label>
+            <select id = "pathChoice" name = "pathChoice" required>
+                <option value = "">--Please choose an option--</option>
+                <option value = "Strength" id = "strength">Strength</option>
+                <option value = "Wisdom" id = "wisdom">Wisdom</option>
+                <option value = "Stealth" id = "stealth">Stealth</option>
+            </select>
+            <input type = "submit" value = "Continue on Your Journey">
+        </form>
+        <p>Your choice will not only test your abilities but also reveal deeper truths about your character.</p>
+    </section>
+    <script>
+    let pathChoice = document.getElementById("pathChoice");
+    let pathForm = document.getElementById("pathForm");
+    pathChoice.addEventListener("change", function(){
+    if (pathChoice.value == "Strength"){
+        document.body.style.backgroundColor = "red";
+    }
+    else if (pathChoice.value == "Wisdom"){
+        document.body.style.backgroundColor = "blue";
+    }
+    else if (pathChoice.value == "Stealth"){
+        document.body.style.backgroundColor = "green";
+    }
+    })
+    pathForm.addEventListener("submit", function (event) {
+            if (pathChoice.value == "Stealth") {
+                pathForm.action = "page5b.html";
+            }});
+    </script>
+</body>
+</html>
