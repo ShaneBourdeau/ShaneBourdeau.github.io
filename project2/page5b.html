@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Path of Stealth</title>
+    <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+    <section class="container">
+    <h1>The Path of Stealth</h1>
+    <p>To successfully navigate the Path of Stealth, you must choose your actions carefully. Select the correct sequence of
+        actions to avoid detection and reach your objective.</p>
+    <!-- Actions -->
+    <div onclick="selectAction('hide')" class="stealth-option">Hide in the shadows</div>
+    <div onclick="selectAction('run')" class="stealth-option">Run quickly to the next cover</div>
+    <div onclick="selectAction('distract')" class="stealth-option">Create a distraction</div>
+    <div onclick="selectAction('wait')" class="stealth-option">Wait for the right moment</div>
+    <!-- Buttons -->
+    <button onclick="checkSequence()">Check Sequence</button>
+    <button onclick="reset()">Reset!</button>
+    <script>
+        const correctSequence = ['hide', 'wait', 'distract'];
+        let selectedActions = [];
+
+            function selectAction(action) {
+                    selectedActions.push(action);
+                    const elements = document.getElementsByClassName('stealth-option');
+                    for (let element of elements) {
+                        if (element.innerText.toLowerCase().includes(action)) {
+                            element.style.backgroundColor = 'rebeccapurple';
+                        }
+                    }
+                }
+
+            function checkSequence() {
+                if (selectedActions.length !== correctSequence.length) {
+                    alert('Try again and conquer the challenge!');
+                    reset(); 
+                    return;
+                    }
+                for (let i = 0; i < correctSequence.length; i++) {
+                    if (selectedActions[i] !== correctSequence[i]) {
+                        alert('Try again and conquer the challenge!');
+                        reset(); 
+                        return;
+                        }
+                    }
+                    alert('Congratulations! You have successfully navigated the Path of Stealth.');
+                    window.location.href = 'page6.html';
+                }
+
+            function reset() {
+                selectedActions = [];
+                const myDivs = document.querySelectorAll('.stealth-option');
+                myDivs.forEach(div => {
+                div.style.backgroundColor = '';
+                    });
+                }
+        </script>
+    </section>
+</body>
+</html>
