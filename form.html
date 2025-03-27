@@ -8,13 +8,11 @@
 <body>
     <form id="sienaForm">
     <label for="emailAddress">Siena College Email:</label>
-    <input type="email" id="emailAddress" placeholder="Enter your Siena email" required>
+    <input type="email" id="emailAddress" placeholder="Enter your Siena email" required pattern=".+@siena\.edu">
     <span id="emailError" class="error"></span>
-
     <label for="sienaID">Siena ID:</label>
-    <input type="text" id="sienaID" placeholder="Enter your Siena ID" required>
+    <input type="text" id="sienaID" placeholder="Enter your Siena ID" required pattern="\d+">
     <span id="sienaIDError" class="error"></span>
-
     <button type="submit">Submit</button>
 </form>
 
