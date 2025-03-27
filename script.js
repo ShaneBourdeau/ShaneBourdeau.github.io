@@ -16,7 +16,7 @@ function validateSienaID(sienaID) {
     if(!sienaID){
         return "Please enter your Siena College ID";
     }
-    if(!sienaID.value.startsWith('90')){
+    if(!sienaID.startsWith('90')){
         return "Invalid Siena ID. It should start with '90'.";
     }
     return "";
@@ -26,7 +26,6 @@ function validateForm() {
     const sienaIDInput = document.getElementById("sienaID");
     const emailError = document.getElementById("emailError");
     const sienaIDError = document.getElementById("sienaIDError");
-
     // Clear previous error messages
     emailError.textContent = "";
     sienaIDError.textContent = "";
@@ -42,6 +41,13 @@ function validateForm() {
     }
     // << ADD CODE HERE >>
     // Do something similar for SienaID error handling.
+    const sienaIDValidationMessage = validateSienaID(sienaIDInput.value.trim());
+
+    // Display errors if any
+    if (sienaIDValidationMessage) {
+        sienaIDError.textContent = sienaIDValidationMessage;
+        isValid = false;
+    }
 
     // If both are valid, submit the form
     if (isValid) {
