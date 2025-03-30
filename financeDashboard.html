@@ -61,8 +61,6 @@
         function validateForm() {
             const sourceInput = document.getElementById("incomeSource");
             const amountInput = document.getElementById("amount");
-            const emailError = document.getElementById("sourceError");
-            const sienaIDError = document.getElementById("amountError");
             // Clear previous error messages
             sourceError.textContent = "";
             amountError.textContent = "";
@@ -90,7 +88,6 @@
                 console.log("Form is valid! Submitting...");
             }
         }
-
 </script>
 </main>
 </body>
