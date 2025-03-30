@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>check payment</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <main class = "container">
+    <h1>Check Payment</h1>
+    <form id = "paymentForm">
+        <div class = "mb-3">
+        <label for = "name" class = "form-label">Name of the check:</label>
+        <input type = "text" id = "name" class = "form-control" required minlength="6">
+        <span id="nameError" class="error"></span><br>
+        </div>
+        <div class = "mb-3">
+            <label for  = "dateInput" class = "form-label">Date: </label>
+            <input type = "date" id = "dateInput" class = "form-control" required>
+            <span id="dateError" class="error"></span><br>
+        </div>
+        <div class = "mb-3">
+            <label for = "amount" class = "form-label">Amount:</label>
+            <input type = "text" id = "amount" class = "form-control" required>
+            <span id="amountError" class="error"></span><br>
+        </div>
+        <div class = "mb-3">
+            <label for = "bank" class = "form-label">Bank:</label>
+            <input type = "text" id = "bank" class = "form-control" required minlength="5">
+            <span id="bankError" class="error"></span><br>
+        </div>
+        <div class = "mb-3">
+            <label for = "accountNumber" class = "form-label">Account Number:</label>
+            <input type = "text" id = "accountNumber" class = "form-control" required minlength = "10" maxlength = "10">
+            <span id="accountNumberError" class="error"></span><br>
+        </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </main>
+    <script>
+        document.getElementById("paymentForm").addEventListener("submit", function (e) {
+                e.preventDefault(); // Stop the form from submitting automatically
+                validateForm(); // Call the validation function
+            });
+            function validateDate(dateInput) {
+                if (!dateInput) {
+                    return "Please enter a date.";
+                }
+                const inputDate = new Date(dateInput);
+                const currentDate = new Date();
+
+                // Compare the input date with the current date
+                if (inputDate < currentDate) {
+                    return "Select a date in the future";
+                }
+                return "";
+            }
+            function validateAmount(amount) {
+                if (!amount) {
+                    return "Please enter the expense amount.";
+                }
+                if (isNaN(amount)) {
+                    return "Amount must be a number.";
+                }
+                amount = Number(amount);
+                 if (amount <= 0) {
+                    return "Amount must be greater than 0.";
+                }
+                return "";
+            }
+            function validateName(name) {
+                    if (!name) {
+                        return "Please enter the name of the check.";
+                    }
+                    if (name.length <= 5) {
+                        return "Name must be more than 5 characters long.";
+                    }
+                    return "";
+                }
+
+                function validateBank(bank) {
+                    if (!bank) {
+                        return "Please enter the bank name.";
+                    }
+                    if (bank.length < 5) {
+                        return "The bank must be at least 5 characters long.";
+                    }
+                    return "";
+                }
+
+                function validateAccountNumber(accountNumber) {
+                    if (!accountNumber) {
+                        return "Please enter the account number.";
+                    }
+                    if (accountNumber.length !== 10) {
+                        return "Account number must be exactly 10 digits.";
+                    }
+                    if (isNaN(accountNumber)) {
+                        return "The account number must be only numbers.";
+                    }
+                    return "";
+                }
+            function validateForm() {
+                const dateInput = document.getElementById("dateInput");
+                const amountInput = document.getElementById("amount");
+                const dateError = document.getElementById("dateError");
+                const amountError = document.getElementById("amountError");
+                
+                const nameInput = document.getElementById("name");
+                const bankInput = document.getElementById("bank");
+                const accountNumberInput = document.getElementById("accountNumber");
+                const nameError = document.getElementById("nameError");
+                const bankError = document.getElementById("bankError");
+                const accountNumberError = document.getElementById("accountNumberError");
+                // Clear previous error messages
+                dateError.textContent = "";
+                amountError.textContent = "";
+                nameError.textContent = "";
+                bankError.textContent = "";
+                accountNumberError.textContent = "";
+                // Run validation checks
+                const dateValidationMessage = validateDate(dateInput.value.trim());
+
+                // Display errors if any
+                let isValid = true;
+                if (dateValidationMessage) {
+                    dateError.textContent = dateValidationMessage;
+                    isValid = false;
+                }
+
+                const amountValidationMessage = validateAmount(amountInput.value.trim());
+
+                // Display errors if any
+                if (amountValidationMessage) {
+                    amountError.textContent = amountValidationMessage;
+                    isValid = false;
+                }
+                const nameValidationMessage = validateName(nameInput.value.trim());
+                if (nameValidationMessage) {
+                    nameError.textContent = nameValidationMessage;
+                    isValid = false;
+                }
+                const bankValidationMessage = validateBank(bankInput.value.trim());
+                if (bankValidationMessage) {
+                    bankError.textContent = bankValidationMessage;
+                    isValid = false;
+                }
+                const accountNumberValidationMessage = validateAccountNumber(accountNumberInput.value.trim());
+                if (accountNumberValidationMessage) {
+                    accountNumberError.textContent = accountNumberValidationMessage;
+                    isValid = false;
+                }
+                // If all are valid, submit the form
+                if (isValid) {
+                    console.log("Form is valid! Submitting...");
+                }
+            }
+        
+    </script>
+</body>
+
+</html>
