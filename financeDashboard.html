@@ -61,6 +61,8 @@
         function validateForm() {
             const sourceInput = document.getElementById("incomeSource");
             const amountInput = document.getElementById("amount");
+            const sourceError = document.getElementById("sourceError");
+            const amountError = document.getElementById("amountError");
             // Clear previous error messages
             sourceError.textContent = "";
             amountError.textContent = "";
