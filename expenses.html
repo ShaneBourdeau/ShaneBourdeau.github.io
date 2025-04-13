@@ -12,20 +12,20 @@
     <form id = expensesForm>
         <div class="mb-3">
             <label for="place" class="form-label">Place of expense</label>
-            <input type="text" id="place" minlength="5" class="form-control" required>
+            <input type="text" id="place" name = "place" minlength="5" class="form-control" required>
             
         </div>
-        <div class = "mb-3">
+        <div>
             <label for = "dateInput" class = "form-label">Date</label>
-            <input type = "date" id = "dateInput" class = "form-control">
+            <input type = "date" id = "dateInput" name = "date" class = "form-control">
             <span id="dateError" class="error"></span><br>
         </div>
-        <div class = "mb-3">
+        <div>
             <label for = "amount" class = "form-label">Amount</label>
-            <input type = "text" id = "amount" class = "form-control">
+            <input type = "text" name = "amount" id = "amount" class = "form-control">
             <span id="amountError" class="error"></span><br>
         </div>
-        <div class = "mb-3">
+        <div>
             <h2>Category</h2>
             <label for = "food" class = "form-label">Food</label>
             <input type = "radio" id = "food" name = "category" value = "food" required = "required">
@@ -34,7 +34,7 @@
             <label for = "clothes" class = "form-label">Clothes</label>
             <input type = "radio" id = "clothes" name = "category" value = "clothes">
         </div>
-        <div class= "mb-3">
+        <div>
             <label for = "paymentMethod" class = "form-label">Payment Method</label>
             <select id = "paymentMethod" class = "form-select" required>
                 <option value = "">--Please choose an option--</option>
@@ -81,11 +81,37 @@
             }
             return"";
         }
+        function requestForm(){
+            let url = "https://webhook-test.com/341cefc70f0e1d09c430949c9a7740c6";
+            let params = new FormData(document.getElementById("expensesForm"));     
+            fetch(url, {
+                method: "POST",
+                body: params
+            })
+                .then(statusCheck)
+                .then(resp => resp.json())
+                .then(handleResponse)
+                .catch(handleError)
+        }
+        async function statusCheck(res){
+            if (!res.ok){
+                throw new Error(await res.text());
+            }
+            return res;
+        }
+        function handleResponse(res){
+            console.log("request was successful");
+        }
+        function handleError(err){
+            console.log("request failed :(");
+        }
         function validateForm() {
             const dateInput = document.getElementById("dateInput");
             const amountInput = document.getElementById("amount");
             const dateError = document.getElementById("dateError");
             const amountError = document.getElementById("amountError");
+           
+            
             // Clear previous error messages
             dateError.textContent = "";
             amountError.textContent = "";
@@ -111,6 +137,7 @@
             // If both are valid, submit the form
             if (isValid) {
                 console.log("Form is valid! Submitting...");
+                requestForm();
             }
         }
     
