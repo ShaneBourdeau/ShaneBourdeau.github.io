@@ -12,17 +12,17 @@
 <form id = "incomeForm">
     <div class = "mb-3">
     <label for = "incomeSource" class = "form-label">Income source name:</label>
-    <input type = "text" id = "incomeSource" minlength = "3" class = "form-control">
+    <input type = "text" name = "incomeSource" id = "incomeSource" minlength = "3" class = "form-control">
     <span id = "sourceError" class = "error"></span><br>
     </div>
-    <div class = "mb-3">
+    <div>
     <label for = "amount" class = "form-label">Amount:</label>
-    <input type = "text" id = "amount" class = "form-control">
+    <input type = "text" name = "amount" id = "amount" class = "form-control">
     <span id="amountError" class="error"></span><br>
     </div>
-    <div class = "mb-3">
+    <div>
     <label for = "frequency" class = "form-label">Frequency:</label>
-    <select id = "frequency" class = "form-select">
+    <select id = "frequency" name = "frequency" class = "form-select">
         <option value="one-time" id="one-time">One-time</option>
         <option value = "monthly" id = "monthly">Monthly</option>
         <option value="bi-weekly" id="bi-weekly">Bi-weekly</option>
@@ -58,6 +58,30 @@
             amount = amount.toFixed(2);
             
         }
+        function requestForm() {
+                let url = "https://webhook-test.com/341cefc70f0e1d09c430949c9a7740c6";
+                let params = new FormData(document.getElementById("incomeForm"));
+                fetch(url, {
+                    method: "POST",
+                    body: params
+                })
+                    .then(statusCheck)
+                    .then(resp => resp.json())
+                    .then(handleResponse)
+                    .catch(handleError)
+            }
+            async function statusCheck(res) {
+                if (!res.ok) {
+                    throw new Error(await res.text());
+                }
+                return res;
+            }
+            function handleResponse(res) {
+                console.log("request was successful");
+            }
+            function handleError(err) {
+                console.log("request failed :(");
+            }
         function validateForm() {
             const sourceInput = document.getElementById("incomeSource");
             const amountInput = document.getElementById("amount");
@@ -88,6 +112,7 @@
             // If both are valid, submit the form
             if (isValid) {
                 console.log("Form is valid! Submitting...");
+                requestForm();
             }
         }
 </script>
