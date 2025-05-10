@@ -22,6 +22,9 @@ h1 {
 h2 {
   font-size: 24px;
 }
+strong {
+    font-size: 24px;
+}
 nav {
   display: flex;
   justify-content: space-between;
@@ -65,4 +68,53 @@ header {
 .projects {
     height: auto;
     float: right;
+}
+span {
+    font-size: 12px;
+}
+.resume {
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.resume::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12px;
+    width: 2px;
+    height: 100%;
+    background-color: #53D07D;
+}
+
+.resume li {
+    position: relative;
+    margin: 20px 0;
+    padding-left: 10px;
+}
+.resume li ul li {
+    list-style-type: disc;
+    padding-left: 20px;
+    position: static;
+}
+.resume li::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #53D07D;
+    border-radius: 50%;
+}
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.container>div {
+  flex: 1;
 }
