@@ -2,29 +2,34 @@
   width: 205px;
   height: 307px;
 }
+
 .logo {
   width: 74px;
   height: 111px;
   display: flex;
   justify-content: flex-start;
 }
-*{
+
+* {
   font-family: Poppins;
   background-color: #4A4A4A;
   color: white;
-  font-size: 24px;
+  font-size: 16px;
 }
+
 h1 {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 900;
 }
+
 h2 {
-  font-size: 32px;
+  font-size: 24px;
 }
+
 nav {
   display: flex;
   justify-content: space-between;
-  font-size: 24px;
+  font-size: 16px;
   align-items: center;
   padding: 10px;
 }
@@ -34,17 +39,21 @@ nav ul {
   list-style-type: none;
   flex-direction: row;
 }
+
 nav a {
-  font-size: 24px;
+  font-size: 16px;
   color: #53D07D;
   text-decoration: none;
 }
+
 a {
   color: #53D07D;
 }
+
 nav li {
   padding: 10px;
 }
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -56,8 +65,14 @@ nav li {
   align-items: center;
   justify-content: center;
 }
+
 header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.projects {
+  height: auto;
+  float: right;
 }
