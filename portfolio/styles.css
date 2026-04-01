@@ -70,6 +70,7 @@ header {
 .projects {
     height: auto;
     float: right;
+    max-width: 100%;
 }
 span {
     font-size: 12px;
